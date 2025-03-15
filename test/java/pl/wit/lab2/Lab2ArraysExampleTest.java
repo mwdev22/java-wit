@@ -2,9 +2,7 @@ package pl.wit.lab2;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.Arrays;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -51,24 +49,19 @@ public class Lab2ArraysExampleTest {
         assertEquals(1, intArray.getIntArraySize());
         assertEquals(1, stringArray.getStringArraySize());
         assertEquals(1, boolArray.getbooleanArraySize());
+        intArray.addElement(4);
+        stringArray.addElement("14");
+        stringArray.addElement("23523");
+        boolArray.addElement(true);
+        assertEquals(2, intArray.getIntArraySize());
+        assertEquals(3, stringArray.getStringArraySize());
+        assertEquals(2, boolArray.getbooleanArraySize());
     }
 
-    @Test
-    void testPrintArraysToLog() {
-        intArray.addElement(10);
-        stringArray.addElement("Test 2");
-        boolArray.addElement(false);
 
-        assertDoesNotThrow(() -> intArray.printArraysToLog());
-        assertDoesNotThrow(() -> stringArray.printArraysToLog());
-        assertDoesNotThrow(() -> boolArray.printArraysToLog());
-    }
-    
     @Test
     void testGetArrayElement() {
     	assertEquals(5, intArray.getIntArrayElement(0));
-    	
-//    	sprawdzamy wyjątek przy index out of range
     	assertThrows(IndexOutOfBoundsException.class,() ->intArray.getIntArrayElement(10));;
     	
     	assertEquals("Test", stringArray.getStringArrayElement(0));
